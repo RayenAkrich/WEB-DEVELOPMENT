@@ -1,1 +1,2 @@
 # WEB-DEVELOPMENT
+This repository contains various web development projects and exercises completed during my studies at the University of Tunis manar. The projects cover a range of topics including HTML, CSS, JavaScript, and modern web frameworks.
