@@ -1,0 +1,58 @@
+body { 
+    font-family: Arial, sans-serif;
+    background: #f9f9f9; margin: 0;
+    padding: 40px; 
+}
+.container {
+    max-width: 400px;
+    margin: auto;
+    background: #fff;
+    padding: 24px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+h1 { 
+    text-align: center;
+    color: #333; 
+}
+#counters{
+    margin-bottom: 10px;
+}
+#taskInput {
+    width: 70%;
+    padding: 8px; 
+}
+#addBtn { 
+    padding: 8px 16px;
+    margin-left: 8px;
+    background: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px; cursor: pointer; 
+}
+#addBtn:hover { 
+    background: #0056b3; 
+}
+ul { 
+    list-style: none;
+    padding: 0; 
+}
+li { 
+    background: #eee;
+    margin: 8px 0;
+    padding: 8px;
+    border-radius: 4px;
+}
+#searchInput {
+    width: 70%; padding: 8px;
+    margin-bottom: 12px; 
+}
+#deleteAllBtn {
+    margin: 8px;
+    background: #dc3545;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 16px; 
+    cursor: pointer;
+}
