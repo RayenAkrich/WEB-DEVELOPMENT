@@ -1,38 +1,39 @@
-console.log('Bienvenue dans votre application de gestion de tâches !');// Message de bienvenue 
-// Déclaration de la liste de tâches
-// Pour chaque tâche, on stocke le texte et l'état (complétée ou non)
-// tasks = [{text: 'Ma tâche', completed: false}, ...]
-let tasks = [];
-// Fonction pour ajouter une tâche
-function ajouterTache() {
-	const input = document.getElementById('taskInput');
-	const taskText = input.value.trim();
+console.log('Bienvenue dans votre application de gestion de tâches !');// msg de bienvenue 
+let tasks = []; // liste pour stocker les taches
+
+function ajouterTache() { //l'ajout du tache
+	const input = document.getElementById('taskInput'); // récupération du tache
+	const taskText = input.value.trim(); 
 	if (taskText !== '') {
-		tasks.push({ text: taskText, completed: false });
-		sauvegarderTaches();
-		afficherTaches();
-		input.value = '';
+		tasks.push({ text: taskText, completed: false }); // ajout du tache dans la liste
+		sauvegarderTaches(); // le sauvegard du tache
+		afficherTaches(); // rafraichissement de la liste
+		input.value = ''; // réinitialisation du champ
 	}
 }
 
 // affichage des tâches dans la liste
 function afficherTaches() {
-	const list = document.getElementById('taskList');
+	const list = document.getElementById('taskList'); // récupération de la liste
 	list.innerHTML = '';
 
-	// Filtrage par recherche
-	const searchValue = document.getElementById('searchInput') ? document.getElementById('searchInput').value.trim().toLowerCase() : '';
-
+	// filtrage par recherche
+	if (document.getElementById('searchInput')!=''){
+		var searchValue = document.getElementById('searchInput').value.trim().toLowerCase();
+	}else {
+		var searchValue = '';
+	}
 	let completedCount = 0;
 	let ongoingCount = 0;
 
 	tasks.forEach((task, index) => {
-		if (searchValue && !task.text.toLowerCase().includes(searchValue)) {
+		if (searchValue && !task.text.toLowerCase().includes(searchValue)) { // filtre
 			return;
 		}
-		const li = document.createElement('li');
 
-		// Texte de la tâche
+		const li = document.createElement('li');// création d'un élément de liste
+
+		// texte de la tâche
 		const span = document.createElement('span');
 		span.textContent = task.text;
 		if (task.completed) {
@@ -44,7 +45,7 @@ function afficherTaches() {
 		}
 		li.appendChild(span);
 
-		// Bouton Terminer
+		// bouton terminer
 		const btnTerminer = document.createElement('button');
 		btnTerminer.textContent = 'Terminer';
 		btnTerminer.style.marginLeft = '10px';
@@ -53,7 +54,7 @@ function afficherTaches() {
 		};
 		li.appendChild(btnTerminer);
 
-		// Bouton Supprimer
+		// bouton supprimer
 		const btnSupprimer = document.createElement('button');
 		btnSupprimer.textContent = 'Supprimer';
 		btnSupprimer.style.marginLeft = '5px';
@@ -65,38 +66,39 @@ function afficherTaches() {
 		list.appendChild(li);
 	});
 
-	// Affichage du compteur
+	// affichage du compteur
 	const counters = document.getElementById('counters');
 	if (counters) {
 		counters.textContent = `Tâches en cours : ${ongoingCount} | Tâches terminées : ${completedCount}`;
 	}
 }
-// Fonction pour tout supprimer
+
+// fonction pour tout supprimer
 function supprimerTout() {
-	tasks = [];
+	tasks = []; // vider la liste
 	sauvegarderTaches();
 	afficherTaches();
 }
 
-// Fonction pour supprimer une tâche
+// fonction pour supprimer une tâche
 function supprimerTache(index) {
-	tasks.splice(index, 1);
+	tasks.splice(index, 1); // suppression de la tâche
 	sauvegarderTaches();
 	afficherTaches();
 }
 
-// Fonction pour terminer une tâche
+// fonction pour terminer une tâche
 function terminerTache(index) {
-	tasks[index].completed = !tasks[index].completed;
+	tasks[index].completed = !tasks[index].completed; // inverser l'état actuel
 	sauvegarderTaches();
 	afficherTaches();
 }
-// Sauvegarder les tâches dans le localStorage
+// sauvegarder les tâches dans le localStorage
 function sauvegarderTaches() {
 	localStorage.setItem('tasks', JSON.stringify(tasks));
 }
 
-// Charger les tâches depuis le localStorage
+// charger les tâches depuis le localStorage
 function chargerTaches() {
 	const saved = localStorage.getItem('tasks');
 	if (saved) {
@@ -104,28 +106,22 @@ function chargerTaches() {
 	}
 }
 
-// Au chargement de la page, on récupère et affiche les tâches sauvegardées
+// au chargement de la page, on récupère et affiche les tâches sauvegardées
 window.addEventListener('DOMContentLoaded', function() {
 	chargerTaches();
 	afficherTaches();
 
-	// Ajout de l'événement sur le bouton 'Tout supprimer'
-	const deleteAllBtn = document.getElementById('deleteAllBtn');
-	if (deleteAllBtn) {
-		deleteAllBtn.addEventListener('click', supprimerTout);
-	}
-
-	// Ajout de l'événement sur le champ de recherche
+	// filtrage par recherche
 	const searchInput = document.getElementById('searchInput');
 	if (searchInput) {
-		searchInput.addEventListener('input', afficherTaches);
+		searchInput.addEventListener('input', afficherTaches); // rafraichissement de la liste à chaque saisie
 	}
 });
 
-// Ajout de l'événement sur le bouton
+// événement sur le bouton ajouter
 document.getElementById('addBtn').addEventListener('click', ajouterTache);
 
-// Ajout de l'événement pour la touche Entrée
+// ajout de l'événement pour la touche Entrée
 document.getElementById('taskInput').addEventListener('keydown', function(event) {
 	if (event.key === 'Enter') {
 		ajouterTache();
