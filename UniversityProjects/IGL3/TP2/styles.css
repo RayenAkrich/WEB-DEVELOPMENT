@@ -1,58 +1,64 @@
-body { 
-    font-family: Arial, sans-serif;
-    background: #f9f9f9; margin: 0;
-    padding: 40px; 
+body {
+    font-family: monospace;
+    background: #f6f6f6;
+    margin: 0;
+    padding: 0;
 }
 .container {
     max-width: 400px;
-    margin: auto;
+    margin: 30px auto;
     background: #fff;
-    padding: 24px;
+    border: 1px solid #bbb;
     border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    padding: 20px;
 }
-h1 { 
-    text-align: center;
-    color: #333; 
+h1 {
+    text-align: left;
+    color: #444;
+    font-size: 1.5em;
+    margin-bottom: 12px;
 }
-#counters{
+#counters {
+    font-size: 1em;
+    color: #333;
     margin-bottom: 10px;
 }
-#taskInput {
-    width: 70%;
-    padding: 8px; 
+input[type="text"] {
+    width: 100%;
+    margin-bottom: 8px;
+    padding: 6px;
+    border: 1px solid #bbb;
+    border-radius: 4px;
+    background: #fafafa;
+    font-size: 1em;
 }
-#addBtn { 
-    padding: 8px 16px;
-    margin-left: 8px;
-    background: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 4px; cursor: pointer; 
-}
-#addBtn:hover { 
-    background: #0056b3; 
-}
-ul { 
-    list-style: none;
-    padding: 0; 
-}
-li { 
+button {
+    padding: 6px 12px;
+    margin-right: 4px;
+    border: 1px solid #bbb;
+    border-radius: 4px;
     background: #eee;
-    margin: 8px 0;
-    padding: 8px;
-    border-radius: 4px;
-}
-#searchInput {
-    width: 70%; padding: 8px;
-    margin-bottom: 12px; 
-}
-#deleteAllBtn {
-    margin: 8px;
-    background: #dc3545;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    padding: 8px 16px; 
+    color: #333;
     cursor: pointer;
+}
+button:hover {
+    background: #ddd;
+}
+ul {
+    list-style: disc inside;
+    padding: 0;
+    margin-top: 14px;
+}
+li {
+    background: #fafafa;
+    margin-bottom: 6px;
+    padding: 6px 8px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid #eee;
+}
+li span {
+    flex: 1;
 }
