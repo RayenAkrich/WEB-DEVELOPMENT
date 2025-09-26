@@ -27,7 +27,7 @@ function afficherTaches() {
 	let ongoingCount = 0;
 
 	tasks.forEach((task, index) => {
-		if (searchValue && !task.text.toLowerCase().includes(searchValue)) { // filtre
+		if (searchValue && !task.text.toLowerCase().startsWith(searchValue)) { // filtre
 			return;
 		}
 
@@ -89,7 +89,7 @@ function supprimerTache(index) {
 
 // fonction pour terminer une tâche
 function terminerTache(index) {
-	tasks[index].completed = !tasks[index].completed; // inverser l'état actuel
+	tasks[index].completed = true; 
 	sauvegarderTaches();
 	afficherTaches();
 }
