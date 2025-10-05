@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CopilotDiffPersistence">
+    <option name="pendingDiffs">
+      <map>
+        <entry key="$PROJECT_DIR$/UniversityProjects/IGL3/TP3/ex8math.ts">
+          <value>
+            <PendingDiffInfo>
+              <option name="filePath" value="$PROJECT_DIR$/UniversityProjects/IGL3/TP3/ex8math.ts" />
+              <option name="originalContent" value="import type { NumberPair } from './ex8types';&#10;&#10;// creation de la fct add&#10;function add (pair: NumberPair) {&#10;    return pair.a + pair.b;&#10;}&#10;export {add} //exportation" />
+              <option name="updatedContent" value="import type { NumberPair } from './ex8types';&#13;&#10;&#13;&#10;// creation de la fct add&#13;&#10;function add (pair: NumberPair) {&#13;&#10;    return pair.a + pair.b;&#13;&#10;}&#13;&#10;export {add} //exportation" />
+            </PendingDiffInfo>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
