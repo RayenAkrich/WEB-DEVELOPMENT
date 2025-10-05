@@ -1,4 +1,4 @@
-import type { NumberPair } from './ex8types';
+import type { NumberPair } from './ex8types.js';
 
 // creation de la fct add
 function add (pair: NumberPair) {
