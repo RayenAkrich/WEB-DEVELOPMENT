@@ -1,4 +1,4 @@
-export class Repository<T> {
+export class Repository<T extends { id: number }> {
   private items: T[] = [];
 
 
@@ -19,7 +19,7 @@ export class Repository<T> {
   }
 
   remove(id: number): boolean {
-    const index = this.items.findIndex(item => item.id === id);
+    const index = this.items.findIndex(item => id === item.id);
     if (index !== -1) {
         this.items.splice(index, 1);
         return true;

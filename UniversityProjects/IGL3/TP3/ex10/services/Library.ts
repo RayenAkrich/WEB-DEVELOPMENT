@@ -1,5 +1,5 @@
-import { Repository } from '../utils/Repository';
-import { Livres } from '../models/Livres';
+import { Repository } from '../utils/Repository.js';
+import { Livres } from '../models/Livres.js';
 
 export class Library {
   private books: Repository<Livres>;
