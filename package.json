@@ -5,5 +5,11 @@
     "@typescript-eslint/parser": "^8.45.0",
     "eslint": "^9.37.0",
     "prettier": "^3.6.2"
+  },
+  "dependencies": {
+    "@angular/common": "^20.3.12",
+    "@angular/core": "^20.3.12",
+    "@angular/forms": "^20.3.12",
+    "@angular/platform-browser": "^20.3.12"
   }
 }
