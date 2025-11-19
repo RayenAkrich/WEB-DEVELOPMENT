@@ -1,0 +1,64 @@
+<div class="articles-container">
+  <h2>Activité 2 & 3 : Liste d'Articles avec *ngFor et [ngClass]</h2>
+  
+  <!-- Formulaire pour ajouter un nouvel article -->
+  <div class="form-section">
+    <h3>📝 Ajouter un nouvel article</h3>
+    <div class="form-group">
+      <input 
+        type="text" 
+        [(ngModel)]="newTitle" 
+        placeholder="Titre de l'article" 
+        class="form-control"
+      />
+    </div>
+    <div class="form-group">
+      <input 
+        type="text" 
+        [(ngModel)]="newContent" 
+        placeholder="Contenu de l'article" 
+        class="form-control"
+      />
+    </div>
+    <div class="form-group">
+      <label for="importance">Importance :</label>
+      <select [(ngModel)]="newImportance" id="importance" class="form-control">
+        <option value="élevée">Élevée</option>
+        <option value="moyenne">Moyenne</option>
+        <option value="faible">Faible</option>
+      </select>
+    </div>
+    <button (click)="addArticle()" class="btn btn-primary">Ajouter l'article</button>
+  </div>
+  
+  <!-- Liste des articles avec ngFor et ngClass -->
+  <div class="articles-list">
+    <h3>📚 Liste des Articles ({{ articles.length }})</h3>
+    
+    <div 
+      *ngFor="let article of articles; let i = index" 
+      [ngClass]="{
+        'important': article.importance === 'élevée',
+        'moyen': article.importance === 'moyenne',
+        'faible': article.importance === 'faible'
+      }"
+      class="article-card"
+    >
+      <div class="article-header">
+        <h4>{{ i + 1 }}. {{ article.titre }}</h4>
+        <span class="badge" [ngClass]="{
+          'badge-danger': article.importance === 'élevée',
+          'badge-warning': article.importance === 'moyenne',
+          'badge-success': article.importance === 'faible'
+        }">
+          {{ article.importance }}
+        </span>
+      </div>
+      <p>{{ article.contenu }}</p>
+    </div>
+    
+    <div *ngIf="articles.length === 0" class="no-articles">
+      <p>ℹ️ Aucun article à afficher. Ajoutez-en un !</p>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,171 @@
+<div class="etudiants-container">
+  <h2>🎓 Liste des Étudiants</h2>
+  <p class="subtitle">Atelier guidé : Vue Maître/Détail avec [class.selected]</p>
+
+  <div class="layout">
+    <!-- Liste des étudiants (Vue Maître) -->
+    <div class="etudiants-list">
+      <h3>Sélectionnez un étudiant</h3>
+      
+      <div *ngIf="etuds.length === 0" class="empty-state">
+        <p>Aucun étudiant dans la liste</p>
+      </div>
+
+      <ul class="students-ul">
+        <li 
+          *ngFor="let etudiant of getEtudiantsFiltres()"
+          [class.selected]="etudiant === selectedEtudiant"
+          (click)="onSelect(etudiant)"
+          class="student-item">
+          
+          <div class="student-info">
+            <span class="student-avatar">{{ getInitials(etudiant.name) }}</span>
+            <div class="student-details">
+              <span class="student-name">{{ etudiant.name }}</span>
+              <span class="student-level">{{ etudiant.level }}</span>
+            </div>
+          </div>
+
+          <span class="student-arrow" *ngIf="etudiant === selectedEtudiant">▶</span>
+        </li>
+      </ul>
+
+      <!-- Statistiques -->
+      <div class="stats-summary">
+        <p>📊 Total : {{ etuds.length }} étudiant(s)</p>
+        <p *ngIf="selectedEtudiant">✅ Sélectionné : {{ selectedEtudiant.name }}</p>
+      </div>
+    </div>
+
+    <!-- Détails de l'étudiant (Vue Détail) -->
+    <div class="etudiant-details">
+      <div *ngIf="!selectedEtudiant" class="no-selection">
+        <div class="placeholder-icon">👈</div>
+        <p>Sélectionnez un étudiant pour voir ses détails</p>
+      </div>
+
+      <div *ngIf="selectedEtudiant" class="details-card">
+        <div class="details-header">
+          <div class="avatar-large">{{ getInitials(selectedEtudiant.name) }}</div>
+          <h3>{{ selectedEtudiant.name }}</h3>
+        </div>
+
+        <div class="details-body">
+          <div class="info-row">
+            <span class="info-label">Niveau :</span>
+            <span 
+              class="info-value"
+              [ngStyle]="{'color': getLevelColor(selectedEtudiant.level)}">
+              {{ selectedEtudiant.level }}
+            </span>
+          </div>
+
+          <div class="info-row">
+            <span class="info-label">Email :</span>
+            <span class="info-value">
+              {{ selectedEtudiant.email || 'Non renseigné' }}
+            </span>
+          </div>
+
+          <div class="info-row">
+            <span class="info-label">Téléphone :</span>
+            <span class="info-value">
+              {{ selectedEtudiant.phone || 'Non renseigné' }}
+            </span>
+          </div>
+
+          <div class="info-row">
+            <span class="info-label">Adresse :</span>
+            <span class="info-value">
+              {{ selectedEtudiant.address || 'Non renseignée' }}
+            </span>
+          </div>
+
+          <!-- Badge de niveau -->
+          <div 
+            class="level-badge"
+            [ngStyle]="{
+              'background-color': getLevelColor(selectedEtudiant.level),
+              'color': 'white'
+            }">
+            Niveau {{ selectedEtudiant.level }}
+          </div>
+
+          <!-- Actions -->
+          <div class="details-actions">
+            <button class="btn btn-edit">✏️ Modifier</button>
+            <button class="btn btn-delete">🗑️ Supprimer</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Formulaire d'ajout -->
+  <div class="add-etudiant-section">
+    <h3>Ajouter un étudiant</h3>
+    <div class="form-grid">
+      <input 
+        type="text" 
+        [(ngModel)]="nouvelEtudiant.name"
+        placeholder="Nom complet"
+        class="form-input">
+      
+      <select [(ngModel)]="nouvelEtudiant.level" class="form-select">
+        <option value="L1">Licence 1</option>
+        <option value="L2">Licence 2</option>
+        <option value="L3">Licence 3</option>
+        <option value="M1">Master 1</option>
+        <option value="M2">Master 2</option>
+      </select>
+
+      <input 
+        type="email" 
+        [(ngModel)]="nouvelEtudiant.email"
+        placeholder="Email"
+        class="form-input">
+
+      <input 
+        type="tel" 
+        [(ngModel)]="nouvelEtudiant.phone"
+        placeholder="Téléphone"
+        class="form-input">
+
+      <input 
+        type="text" 
+        [(ngModel)]="nouvelEtudiant.address"
+        placeholder="Adresse"
+        class="form-input full-width">
+
+      <button 
+        class="btn btn-add full-width"
+        (click)="addEtudiant()"
+        [disabled]="!nouvelEtudiant.name || !nouvelEtudiant.level">
+        ➕ Ajouter l'étudiant
+      </button>
+    </div>
+  </div>
+
+  <!-- Filtres par niveau -->
+  <div class="filtres-section">
+    <h3>Filtrer par niveau</h3>
+    <div class="filtres-group">
+      <button 
+        class="filtre-btn"
+        [class.active]="filtreNiveau === 'tous'"
+        (click)="filtreNiveau = 'tous'">
+        Tous
+      </button>
+      <button 
+        *ngFor="let niveau of niveaux"
+        class="filtre-btn"
+        [class.active]="filtreNiveau === niveau"
+        (click)="filtreNiveau = niveau">
+        {{ niveau }}
+      </button>
+    </div>
+    <p class="filtre-result">
+      {{ getEtudiantsFiltres().length }} étudiant(s) trouvé(s)
+    </p>
+  </div>
+</div>

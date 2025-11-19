@@ -1,0 +1,196 @@
+<div class="taches-container">
+  <h2>✅ Gestionnaire de Tâches</h2>
+  <p class="subtitle">Combinaison de toutes les directives : *ngIf, *ngFor, [ngClass], [ngStyle]</p>
+
+  <!-- Statistiques -->
+  <div class="stats-bar">
+    <div class="stat-item">
+      <span class="stat-number">{{ getTotalTaches() }}</span>
+      <span class="stat-label">Total</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-number">{{ getTachesCompletes() }}</span>
+      <span class="stat-label">Terminées</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-number">{{ getTachesEnCours() }}</span>
+      <span class="stat-label">En cours</span>
+    </div>
+  </div>
+
+  <!-- Formulaire d'ajout -->
+  <div class="add-tache-section">
+    <h3>Ajouter une tâche</h3>
+    <div class="form-row">
+      <input 
+        type="text" 
+        [(ngModel)]="nouvelleTache.description"
+        placeholder="Description de la tâche"
+        class="input-text"
+        (keyup.enter)="addTache()">
+      
+      <select [(ngModel)]="nouvelleTache.priorite" class="input-select">
+        <option value="haute">🔴 Haute</option>
+        <option value="moyenne">🟡 Moyenne</option>
+        <option value="basse">🟢 Basse</option>
+      </select>
+
+      <button 
+        class="btn btn-primary"
+        (click)="addTache()"
+        [disabled]="!nouvelleTache.description.trim()">
+        Ajouter
+      </button>
+    </div>
+  </div>
+
+  <!-- Filtres -->
+  <div class="filtres-section">
+    <h3>Filtres</h3>
+    <div class="filtres-group">
+      <button 
+        class="filtre-btn"
+        [class.active]="filtreStatut === 'tous'"
+        (click)="filtreStatut = 'tous'">
+        Toutes
+      </button>
+      <button 
+        class="filtre-btn"
+        [class.active]="filtreStatut === 'en cours'"
+        (click)="filtreStatut = 'en cours'">
+        En cours
+      </button>
+      <button 
+        class="filtre-btn"
+        [class.active]="filtreStatut === 'terminées'"
+        (click)="filtreStatut = 'terminées'">
+        Terminées
+      </button>
+    </div>
+    <div class="filtres-group">
+      <button 
+        class="filtre-btn"
+        [class.active]="filtrePriorite === 'toutes'"
+        (click)="filtrePriorite = 'toutes'">
+        Toutes priorités
+      </button>
+      <button 
+        class="filtre-btn"
+        [class.active]="filtrePriorite === 'haute'"
+        (click)="filtrePriorite = 'haute'">
+        🔴 Haute
+      </button>
+      <button 
+        class="filtre-btn"
+        [class.active]="filtrePriorite === 'moyenne'"
+        (click)="filtrePriorite = 'moyenne'">
+        🟡 Moyenne
+      </button>
+      <button 
+        class="filtre-btn"
+        [class.active]="filtrePriorite === 'basse'"
+        (click)="filtrePriorite = 'basse'">
+        🟢 Basse
+      </button>
+    </div>
+  </div>
+
+  <!-- Liste des tâches -->
+  <div class="taches-list">
+    <div *ngIf="getTachesFiltrees().length === 0" class="empty-state">
+      <p>📭 Aucune tâche trouvée avec ces filtres</p>
+    </div>
+
+    <div 
+      *ngFor="let tache of getTachesFiltrees(); let i = index"
+      class="tache-card"
+      [ngClass]="{
+        'completed': tache.statut,
+        'priorite-haute': tache.priorite === 'haute',
+        'priorite-moyenne': tache.priorite === 'moyenne',
+        'priorite-basse': tache.priorite === 'basse'
+      }">
+      
+      <div class="tache-header">
+        <div class="tache-checkbox">
+          <input 
+            type="checkbox" 
+            [checked]="tache.statut"
+            (change)="toggleTache(tache)"
+            id="tache-{{i}}">
+          <label for="tache-{{i}}"></label>
+        </div>
+
+        <p 
+          class="tache-description"
+          [ngStyle]="{
+            'text-decoration': tache.statut ? 'line-through' : 'none',
+            'color': tache.statut ? '#95a5a6' : getPriorityColor(tache.priorite),
+            'font-weight': tache.priorite === 'haute' && !tache.statut ? 'bold' : 'normal'
+          }">
+          {{ tache.description }}
+        </p>
+      </div>
+
+      <div class="tache-footer">
+        <span 
+          class="tache-badge"
+          [ngStyle]="{
+            'background-color': getPriorityColor(tache.priorite),
+            'opacity': tache.statut ? '0.5' : '1'
+          }">
+          {{ tache.priorite | uppercase }}
+        </span>
+
+        <button 
+          class="btn-delete"
+          (click)="deleteTache(i)"
+          title="Supprimer">
+          🗑️
+        </button>
+      </div>
+
+      <!-- Barre de progression visuelle pour priorité -->
+      <div 
+        class="priority-bar"
+        [ngStyle]="{
+          'width': getPriorityWidth(tache.priorite),
+          'background-color': getPriorityColor(tache.priorite),
+          'opacity': tache.statut ? '0.3' : '0.7'
+        }">
+      </div>
+    </div>
+  </div>
+
+  <!-- Barre de progression globale -->
+  <div class="progress-section" *ngIf="getTotalTaches() > 0">
+    <h3>Progression globale</h3>
+    <div class="progress-bar-container">
+      <div 
+        class="progress-bar"
+        [ngStyle]="{
+          'width': getProgressPercentage() + '%',
+          'background-color': getProgressPercentage() === 100 ? '#27ae60' : '#3498db'
+        }">
+      </div>
+    </div>
+    <p class="progress-text">{{ getProgressPercentage() }}% complété</p>
+  </div>
+
+  <!-- Message de félicitations -->
+  <div 
+    *ngIf="getTotalTaches() > 0 && getProgressPercentage() === 100"
+    class="congratulations"
+    [ngStyle]="{
+      'background-color': '#d4edda',
+      'color': '#155724',
+      'padding': '20px',
+      'border-radius': '10px',
+      'text-align': 'center',
+      'margin-top': '20px',
+      'animation': 'bounce 1s ease'
+    }">
+    <h3>🎉 Félicitations !</h3>
+    <p>Toutes vos tâches sont terminées !</p>
+  </div>
+</div>

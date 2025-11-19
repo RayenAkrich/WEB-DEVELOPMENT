@@ -1,0 +1,62 @@
+<div class="tp4-container">
+
+  <nav class="navigation">
+    <a href="#welcome">Activité 1</a>
+    <a href="#articles">Activités 2&3</a>
+    <a href="#produits">Activité 4</a>
+    <a href="#taches">Activité 5</a>
+    <a href="#etudiants">Atelier</a>
+  </nav>
+
+  <main class="tp4-main">
+    <!-- Activité 1 : *ngIf -->
+    <section id="welcome" class="activity-section">
+      <div class="section-header">
+        <h2>🔑 Activité 1 : Affichage Conditionnel</h2>
+        <span class="badge">*ngIf</span>
+      </div>
+      <app-welcome></app-welcome>
+    </section>
+
+    <!-- Activités 2 & 3 : *ngFor + [ngClass] -->
+    <section id="articles" class="activity-section">
+      <div class="section-header">
+        <h2>📝 Activités 2 & 3 : Listes et Classes Dynamiques</h2>
+        <span class="badge">*ngFor</span>
+        <span class="badge">[ngClass]</span>
+      </div>
+      <app-articles></app-articles>
+    </section>
+
+    <!-- Activité 4 : [ngStyle] -->
+    <section id="produits" class="activity-section">
+      <div class="section-header">
+        <h2>🎨 Activité 4 : Styles Dynamiques</h2>
+        <span class="badge">[ngStyle]</span>
+      </div>
+      <app-produits></app-produits>
+    </section>
+
+    <!-- Activité 5 : Combinaison -->
+    <section id="taches" class="activity-section">
+      <div class="section-header">
+        <h2>🚀 Activité 5 : Combinaison de Directives</h2>
+        <span class="badge">*ngIf</span>
+        <span class="badge">*ngFor</span>
+        <span class="badge">[ngClass]</span>
+        <span class="badge">[ngStyle]</span>
+      </div>
+      <app-taches></app-taches>
+    </section>
+
+    <!-- Atelier Guidé : Etudiants -->
+    <section id="etudiants" class="activity-section">
+      <div class="section-header">
+        <h2>🎯 Atelier Guidé : Vue Maître/Détail</h2>
+        <span class="badge">[class.selected]</span>
+      </div>
+      <app-etudiants></app-etudiants>
+    </section>
+  </main>
+
+</div>
