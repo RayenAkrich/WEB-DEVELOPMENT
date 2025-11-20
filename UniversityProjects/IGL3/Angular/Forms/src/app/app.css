@@ -1,0 +1,53 @@
+/* Styles globaux pour l'application */
+.app-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 20px;
+}
+
+/* En-tête */
+.app-header {
+  text-align: center;
+  color: white;
+  padding: 40px 20px 30px;
+}
+
+.app-header h1 {
+  margin: 0 0 15px 0;
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.subtitle {
+  font-size: 1.1rem;
+  opacity: 0.95;
+  margin: 0;
+}
+
+/* Contenu principal */
+.app-main {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Pied de page */
+.app-footer {
+  text-align: center;
+  color: white;
+  padding: 30px 20px;
+  margin-top: 40px;
+  font-size: 0.95rem;
+  opacity: 0.9;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .app-header h1 {
+    font-size: 2rem;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+  }
+}

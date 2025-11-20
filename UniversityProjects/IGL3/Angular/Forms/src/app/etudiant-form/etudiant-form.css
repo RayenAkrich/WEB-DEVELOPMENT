@@ -1,0 +1,179 @@
+/* Styles pour le conteneur principal */
+.container {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 30px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  color: #2c3e50;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+h2 {
+  color: #27ae60;
+  margin-bottom: 20px;
+}
+
+/* Diagnostic temporaire */
+.diagnostic {
+  background: #ecf0f1;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  font-family: monospace;
+  font-size: 0.9rem;
+  color: #7f8c8d;
+}
+
+/* Groupes de formulaire */
+.form-group {
+  margin-bottom: 25px;
+}
+
+label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #34495e;
+}
+
+/* Champs de saisie */
+.form-control {
+  width: 100%;
+  padding: 10px 12px;
+  font-size: 1rem;
+  border: 2px solid #ddd;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: #3498db;
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+}
+
+/* Barre de validation visuelle sur le côté gauche */
+.form-control.ng-valid[required],
+.form-control.ng-valid.required {
+  border-left: 5px solid #27ae60;
+}
+
+.form-control.ng-invalid:not(form) {
+  border-left: 5px solid #e74c3c;
+}
+
+/* Messages d'alerte */
+.alert {
+  padding: 10px 15px;
+  border-radius: 5px;
+  margin-top: 10px;
+  font-size: 0.9rem;
+}
+
+.alert-danger {
+  background-color: #ffebee;
+  color: #c62828;
+  border: 1px solid #ef9a9a;
+}
+
+/* Boutons */
+.form-actions {
+  display: flex;
+  gap: 15px;
+  margin-top: 30px;
+}
+
+.btn {
+  padding: 12px 30px;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  flex: 1;
+}
+
+.btn-success {
+  background-color: #27ae60;
+  color: white;
+}
+
+.btn-success:hover:not(:disabled) {
+  background-color: #229954;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(39, 174, 96, 0.3);
+}
+
+.btn-success:disabled {
+  background-color: #95a5a6;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.btn-default {
+  background-color: #ecf0f1;
+  color: #2c3e50;
+  border: 2px solid #bdc3c7;
+}
+
+.btn-default:hover {
+  background-color: #bdc3c7;
+  transform: translateY(-2px);
+}
+
+.btn-primary {
+  background-color: #3498db;
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: #2980b9;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(52, 152, 219, 0.3);
+}
+
+/* Affichage après soumission */
+.row {
+  display: flex;
+  padding: 12px 0;
+  border-bottom: 1px solid #ecf0f1;
+}
+
+.row:last-of-type {
+  border-bottom: none;
+}
+
+.col-xs-3 {
+  flex: 0 0 30%;
+  font-weight: 600;
+  color: #7f8c8d;
+}
+
+.col-xs-9 {
+  flex: 0 0 70%;
+  color: #2c3e50;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .container {
+    margin: 20px;
+    padding: 20px;
+  }
+
+  .form-actions {
+    flex-direction: column;
+  }
+
+  .btn {
+    width: 100%;
+  }
+}
