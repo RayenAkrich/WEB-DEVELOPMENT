@@ -1,0 +1,28 @@
+<div class="container">
+  <header class="header">
+    <h1>📚 Book Catalog</h1>
+    <p class="subtitle">Gestion de bibliothèque avec Angular 20.3.8</p>
+  </header>
+
+  <div class="content">
+    <!-- Formulaire d'ajout/modification -->
+    <div class="form-section">
+      <app-book-form
+        [categories]="categories"
+        [bookToEdit]="bookToEdit"
+        (bookAdded)="addBook($event)"
+        (bookUpdated)="updateBook($event)"
+        (editCancelled)="cancelEdit()">
+      </app-book-form>
+    </div>
+
+    <!-- Liste des livres -->
+    <div class="list-section">
+      <app-book-list
+        [books]="books"
+        (bookDeleted)="deleteBook($event)"
+        (bookEdited)="editBook($event)">
+      </app-book-list>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,103 @@
+<div class="list-container">
+  <!-- En-tête avec compteurs -->
+  <div class="list-header">
+    <h2>📖 Liste des Livres</h2>
+    <div class="stats">
+      <span class="stat-badge">Total: {{ totalBooks }}</span>
+      <span class="stat-badge available">Disponibles: {{ availableBooks }}</span>
+      <span class="stat-badge">Affichés: {{ filteredBooks.length }}</span>
+    </div>
+  </div>
+
+  <!-- Filtres et recherche -->
+  <div class="filters">
+    <div class="search-box">
+      <input
+        type="text"
+        [(ngModel)]="searchTerm"
+        placeholder="🔍 Rechercher par titre ou auteur..."
+        class="search-input">
+    </div>
+
+    <div class="filter-controls">
+      <select [(ngModel)]="filterCategory" class="filter-select">
+        <option value="">Toutes les catégories</option>
+        <option *ngFor="let cat of categories" [value]="cat">{{ cat }}</option>
+      </select>
+
+      <select [(ngModel)]="filterAvailability" class="filter-select">
+        <option value="">Toutes disponibilités</option>
+        <option value="available">Disponibles uniquement</option>
+        <option value="unavailable">Non disponibles</option>
+      </select>
+
+      <select [(ngModel)]="sortBy" class="filter-select">
+        <option value="">Tri par défaut</option>
+        <option value="title">Titre (A-Z)</option>
+        <option value="author">Auteur (A-Z)</option>
+        <option value="category">Catégorie</option>
+        <option value="availability">Disponibilité</option>
+      </select>
+
+      <button (click)="resetFilters()" class="btn-reset">Réinitialiser</button>
+    </div>
+  </div>
+
+  <!-- Message si aucun livre -->
+  <div *ngIf="filteredBooks.length === 0" class="no-books">
+    <p>📚 Aucun livre trouvé</p>
+  </div>
+
+  <!-- Tableau des livres -->
+  <div *ngIf="filteredBooks.length > 0" class="table-container">
+    <table class="books-table">
+      <thead>
+        <tr>
+          <th>Titre</th>
+          <th>Auteur</th>
+          <th>Catégorie</th>
+          <th>Email</th>
+          <th>Téléphone</th>
+          <th>Date</th>
+          <th>Stock</th>
+          <th>Disponibilité</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (book of filteredBooks; track book.id) {
+          <tr [class.unavailable]="!book.isAvailable">
+            <td class="book-title">{{ book.title }}</td>
+            <td>{{ book.author }}</td>
+            <td>
+              <span class="category-badge">{{ book.category }}</span>
+            </td>
+            <td class="email">{{ book.publisherEmail }}</td>
+            <td class="phone">{{ book.publisherPhone }}</td>
+            <td>{{ book.releaseDate }}</td>
+            <td class="stock">{{ book.stock ?? '-' }}</td>
+            <td>
+              <span class="status-badge" [class.available]="book.isAvailable">
+                {{ book.isAvailable ? '✓ Disponible' : '✗ Indisponible' }}
+              </span>
+            </td>
+            <td class="actions">
+              <button
+                (click)="onEdit(book)"
+                class="btn-edit"
+                title="Modifier">
+                ✏️
+              </button>
+              <button
+                (click)="onDelete(book.id)"
+                class="btn-delete"
+                title="Supprimer">
+                🗑️
+              </button>
+            </td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+</div>
