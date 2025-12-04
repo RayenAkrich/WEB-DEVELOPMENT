@@ -3,9 +3,6 @@
   <div [hidden]="submitted">
     <h1>Formulaire Etudiant</h1>
     
-    <!-- Diagnostic (à supprimer plus tard) -->
-    <div class="diagnostic">{{diagnostic}}</div>
-    
     <form (ngSubmit)="onSubmit()" #etudiantForm="ngForm">
       
       <!-- Champ Name (obligatoire) -->

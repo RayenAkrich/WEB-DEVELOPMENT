@@ -23,11 +23,6 @@ export class EtudiantForm {
     this.submitted = true;
   }
 
-  // TODO: Remove this when we're done
-  get diagnostic() {
-    return JSON.stringify(this.model);
-  }
-
   newEtudiant() {
     this.model = new Etudiant(42, '', '');
     // Réinitialiser le formulaire pour effacer les indicateurs
