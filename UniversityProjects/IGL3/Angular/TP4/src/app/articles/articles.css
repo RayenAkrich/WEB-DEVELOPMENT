@@ -17,11 +17,10 @@ h3 {
 
 /* Formulaire */
 .form-section {
-  background-color: #f8f9fa;
-  border-radius: 8px;
-  padding: 20px;
-  margin-bottom: 30px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  background-color: #fafbfc;
+  border-radius: 6px;
+  padding: 12px;
+  margin-bottom: 20px;
 }
 
 .form-group {
@@ -47,7 +46,6 @@ h3 {
 .form-control:focus {
   outline: none;
   border-color: #007bff;
-  box-shadow: 0 0 0 0.2rem rgba(0,123,255,0.25);
 }
 
 .btn {
@@ -75,16 +73,10 @@ h3 {
 }
 
 .article-card {
-  padding: 15px;
-  margin-bottom: 15px;
-  border-radius: 4px;
-  border: 2px solid;
-  transition: transform 0.2s;
-}
-
-.article-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+  padding: 12px;
+  margin-bottom: 12px;
+  border-radius: 6px;
+  border: 1px solid #eef1f4;
 }
 
 /* Classes ngClass pour importance */

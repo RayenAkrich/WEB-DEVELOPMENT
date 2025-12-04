@@ -3,7 +3,7 @@
   
   <!-- Formulaire pour ajouter un nouvel article -->
   <div class="form-section">
-    <h3>📝 Ajouter un nouvel article</h3>
+    <h3>Ajouter un nouvel article</h3>
     <div class="form-group">
       <input 
         type="text" 
@@ -33,7 +33,7 @@
   
   <!-- Liste des articles avec ngFor et ngClass -->
   <div class="articles-list">
-    <h3>📚 Liste des Articles ({{ articles.length }})</h3>
+    <h3>Liste des articles ({{ articles.length }})</h3>
     
     <div 
       *ngFor="let article of articles; let i = index" 
@@ -58,7 +58,7 @@
     </div>
     
     <div *ngIf="articles.length === 0" class="no-articles">
-      <p>ℹ️ Aucun article à afficher. Ajoutez-en un !</p>
+      <p>Aucun article à afficher. Ajoutez-en un !</p>
     </div>
   </div>
 </div>

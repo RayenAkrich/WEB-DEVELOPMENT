@@ -2,16 +2,16 @@
   <h2>Activité 1 : Affichage Conditionnel avec *ngIf</h2>
   
   <!-- Message de bienvenue conditionnel -->
-  <div *ngIf="isLoggedIn; else notLoggedIn" class="welcome-message">
-    <p>✅ Bienvenue, utilisateur !</p>
+    <div *ngIf="isLoggedIn; else notLoggedIn" class="welcome-message">
+    <p>Bienvenue, utilisateur !</p>
     <p>Vous êtes maintenant connecté.</p>
     <button (click)="toggleLogin()" class="btn btn-danger">Se déconnecter</button>
   </div>
   
   <!-- Template alternatif si non connecté -->
-  <ng-template #notLoggedIn>
+    <ng-template #notLoggedIn>
     <div class="login-form">
-      <p>❌ Vous n'êtes pas connecté</p>
+      <p>Vous n'êtes pas connecté</p>
       
       <!-- Défi : Validation avec champ texte -->
       <div class="form-group">
@@ -30,7 +30,7 @@
         <button (click)="login()" class="btn btn-success">Connexion avec Validation</button>
       </div>
       
-      <p class="hint">💡 Astuce : Pour la validation, utilisez le prénom "{{ requiredName }}"</p>
+      <p class="hint">Astuce : Pour la validation, utilisez le prénom "{{ requiredName }}"</p>
     </div>
   </ng-template>
 </div>

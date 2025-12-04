@@ -28,16 +28,15 @@ h2 {
 }
 
 .produit-card {
-  background: white;
-  border-radius: 12px;
-  padding: 20px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: #ffffff;
+  border-radius: 8px;
+  padding: 14px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+  transition: background-color 0.15s ease;
 }
 
 .produit-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+  background-color: #fbfcfd;
 }
 
 .produit-header {
@@ -155,11 +154,10 @@ h2 {
 
 /* Formulaire d'ajout */
 .add-produit-form {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  padding: 25px;
-  border-radius: 12px;
-  margin-bottom: 40px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  background: #f4f6f8;
+  padding: 12px;
+  border-radius: 8px;
+  margin-bottom: 30px;
 }
 
 .add-produit-form h3 {
@@ -223,15 +221,10 @@ h2 {
 }
 
 .stat-card {
-  padding: 20px;
-  border-radius: 10px;
+  padding: 16px;
+  border-radius: 8px;
   text-align: center;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
-}
-
-.stat-card:hover {
-  transform: scale(1.05);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.06);
 }
 
 .stat-label {

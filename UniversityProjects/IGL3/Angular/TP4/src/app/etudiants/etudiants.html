@@ -1,5 +1,5 @@
 <div class="etudiants-container">
-  <h2>🎓 Liste des Étudiants</h2>
+  <h2>Liste des étudiants</h2>
   <p class="subtitle">Atelier guidé : Vue Maître/Détail avec [class.selected]</p>
 
   <div class="layout">
@@ -32,15 +32,15 @@
 
       <!-- Statistiques -->
       <div class="stats-summary">
-        <p>📊 Total : {{ etuds.length }} étudiant(s)</p>
-        <p *ngIf="selectedEtudiant">✅ Sélectionné : {{ selectedEtudiant.name }}</p>
+        <p>Total : {{ etuds.length }} étudiant(s)</p>
+        <p *ngIf="selectedEtudiant">Sélectionné : {{ selectedEtudiant.name }}</p>
       </div>
     </div>
 
     <!-- Détails de l'étudiant (Vue Détail) -->
     <div class="etudiant-details">
       <div *ngIf="!selectedEtudiant" class="no-selection">
-        <div class="placeholder-icon">👈</div>
+        <div class="placeholder-icon"></div>
         <p>Sélectionnez un étudiant pour voir ses détails</p>
       </div>
 
@@ -93,8 +93,8 @@
 
           <!-- Actions -->
           <div class="details-actions">
-            <button class="btn btn-edit">✏️ Modifier</button>
-            <button class="btn btn-delete">🗑️ Supprimer</button>
+            <button class="btn btn-edit">Modifier</button>
+            <button class="btn btn-delete">Supprimer</button>
           </div>
         </div>
       </div>
@@ -141,7 +141,7 @@
         class="btn btn-add full-width"
         (click)="addEtudiant()"
         [disabled]="!nouvelEtudiant.name || !nouvelEtudiant.level">
-        ➕ Ajouter l'étudiant
+        Ajouter l'étudiant
       </button>
     </div>
   </div>

@@ -39,14 +39,14 @@ export class Produits {
     }
   }
   
-  // Méthode pour obtenir l'icône en fonction du stock
+  // Méthode pour obtenir un libellé en fonction du stock
   getStockIcon(stock: number): string {
     if (stock > 50) {
-      return '✅'; // Vert - Bon stock
+      return 'Disponible';
     } else if (stock >= 20 && stock <= 50) {
-      return '⚠️'; // Orange - Stock moyen
+      return 'Stock moyen';
     } else {
-      return '❌'; // Rouge - Stock faible
+      return 'Stock faible';
     }
   }
   

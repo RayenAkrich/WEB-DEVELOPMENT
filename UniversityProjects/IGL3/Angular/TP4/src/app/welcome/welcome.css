@@ -1,10 +1,10 @@
 .welcome-container {
   max-width: 600px;
   margin: 20px auto;
-  padding: 20px;
-  background-color: #f8f9fa;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  padding: 16px;
+  background-color: #fbfcfd;
+  border-radius: 6px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.06);
 }
 
 h2 {
@@ -14,10 +14,10 @@ h2 {
 }
 
 .welcome-message {
-  background-color: #d4edda;
-  border: 1px solid #c3e6cb;
+  background-color: #eaf7ec;
+  border: 1px solid #d6efda;
   border-radius: 4px;
-  padding: 20px;
+  padding: 12px;
   text-align: center;
 }
 
@@ -28,10 +28,10 @@ h2 {
 }
 
 .login-form {
-  background-color: #fff3cd;
-  border: 1px solid #ffeaa7;
+  background-color: #fff9ec;
+  border: 1px solid #fff0c7;
   border-radius: 4px;
-  padding: 20px;
+  padding: 12px;
 }
 
 .login-form p {
@@ -64,7 +64,6 @@ h2 {
 .form-control:focus {
   outline: none;
   border-color: #007bff;
-  box-shadow: 0 0 0 0.2rem rgba(0,123,255,0.25);
 }
 
 .button-group {

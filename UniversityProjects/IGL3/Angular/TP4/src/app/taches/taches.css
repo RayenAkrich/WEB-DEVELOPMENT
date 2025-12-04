@@ -23,11 +23,10 @@ h2 {
 .stats-bar {
   display: flex;
   justify-content: space-around;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  padding: 25px;
-  border-radius: 12px;
-  margin-bottom: 30px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  background: #f4f6f8;
+  padding: 12px;
+  border-radius: 8px;
+  margin-bottom: 20px;
 }
 
 .stat-item {
@@ -51,10 +50,10 @@ h2 {
 
 /* Formulaire d'ajout */
 .add-tache-section {
-  background: #f8f9fa;
-  padding: 25px;
-  border-radius: 12px;
-  margin-bottom: 30px;
+  background: #fafbfc;
+  padding: 12px;
+  border-radius: 8px;
+  margin-bottom: 20px;
 }
 
 .add-tache-section h3 {
@@ -72,11 +71,10 @@ h2 {
 .input-text {
   flex: 2;
   min-width: 200px;
-  padding: 12px 15px;
-  border: 2px solid #ddd;
+  padding: 8px 10px;
+  border: 1px solid #e3e6ea;
   border-radius: 6px;
-  font-size: 1rem;
-  transition: border-color 0.3s ease;
+  font-size: 0.95rem;
 }
 
 .input-text:focus {
@@ -86,22 +84,21 @@ h2 {
 
 .input-select {
   flex: 1;
-  min-width: 150px;
-  padding: 12px 15px;
-  border: 2px solid #ddd;
+  min-width: 140px;
+  padding: 8px 10px;
+  border: 1px solid #e3e6ea;
   border-radius: 6px;
-  font-size: 1rem;
+  font-size: 0.95rem;
   cursor: pointer;
 }
 
 .btn {
-  padding: 12px 25px;
+  padding: 8px 14px;
   border: none;
   border-radius: 6px;
-  font-size: 1rem;
+  font-size: 0.95rem;
   font-weight: 600;
   cursor: pointer;
-  transition: all 0.3s ease;
 }
 
 .btn:disabled {
@@ -110,13 +107,8 @@ h2 {
 }
 
 .btn-primary {
-  background-color: #3498db;
+  background-color: #2d8bfd;
   color: white;
-}
-
-.btn-primary:hover:not(:disabled) {
-  background-color: #2980b9;
-  transform: scale(1.05);
 }
 
 /* Filtres */
@@ -137,19 +129,13 @@ h2 {
 }
 
 .filtre-btn {
-  padding: 10px 20px;
-  border: 2px solid #ddd;
+  padding: 8px 14px;
+  border: 1px solid #e6e9ee;
   background-color: white;
   border-radius: 6px;
   cursor: pointer;
-  transition: all 0.3s ease;
   font-size: 0.9rem;
   font-weight: 500;
-}
-
-.filtre-btn:hover {
-  border-color: #3498db;
-  background-color: #ecf0f1;
 }
 
 .filtre-btn.active {
@@ -172,19 +158,16 @@ h2 {
 
 .tache-card {
   background: white;
-  border-left: 4px solid #ddd;
-  padding: 15px 20px;
-  margin-bottom: 15px;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
+  border-left: 4px solid #eee;
+  padding: 10px 14px;
+  margin-bottom: 12px;
+  border-radius: 6px;
+  transition: background-color 0.15s ease;
   position: relative;
-  overflow: hidden;
 }
 
 .tache-card:hover {
-  transform: translateX(5px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  background-color: #fbfcfd;
 }
 
 .tache-card.priorite-haute {
@@ -200,8 +183,8 @@ h2 {
 }
 
 .tache-card.completed {
-  opacity: 0.7;
-  background-color: #f8f9fa;
+  opacity: 0.85;
+  background-color: #f7f8f9;
 }
 
 .tache-header {
@@ -224,8 +207,7 @@ h2 {
 .tache-description {
   flex: 1;
   margin: 0;
-  font-size: 1.1rem;
-  transition: all 0.3s ease;
+  font-size: 1rem;
 }
 
 .tache-footer {
@@ -248,16 +230,14 @@ h2 {
 .btn-delete {
   background: none;
   border: none;
-  font-size: 1.3rem;
+  font-size: 0.95rem;
   cursor: pointer;
-  padding: 5px 10px;
+  padding: 6px 10px;
   border-radius: 4px;
-  transition: all 0.3s ease;
 }
 
 .btn-delete:hover {
-  background-color: #ffebee;
-  transform: scale(1.2);
+  background-color: #fff5f5;
 }
 
 .priority-bar {
@@ -270,10 +250,10 @@ h2 {
 
 /* Progression globale */
 .progress-section {
-  background: #f8f9fa;
-  padding: 25px;
-  border-radius: 12px;
-  margin-bottom: 20px;
+  background: #fafbfc;
+  padding: 12px;
+  border-radius: 8px;
+  margin-bottom: 16px;
 }
 
 .progress-section h3 {
