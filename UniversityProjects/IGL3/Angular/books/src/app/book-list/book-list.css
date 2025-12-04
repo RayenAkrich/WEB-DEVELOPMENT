@@ -1,10 +1,10 @@
 .list-container {
-  background: white;
-  padding: 2rem;
-  border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background: #ffffff;
+  padding: 1.25rem;
+  border-radius: 6px;
+  border: 1px solid #e6e9ee;
+  width: 1000px;
 }
-
 .list-header {
   display: flex;
   justify-content: space-between;
@@ -16,8 +16,9 @@
 
 .list-header h2 {
   margin: 0;
-  color: #2c3e50;
-  font-size: 1.5rem;
+  color: #222;
+  font-size: 1.125rem;
+  font-weight: 600;
 }
 
 .stats {
@@ -51,17 +52,10 @@
 
 .search-input {
   width: 100%;
-  padding: 0.75rem 1rem;
-  border: 2px solid #e0e0e0;
-  border-radius: 8px;
-  font-size: 1rem;
-  transition: all 0.3s ease;
-}
-
-.search-input:focus {
-  outline: none;
-  border-color: #3498db;
-  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #dfe4ea;
+  border-radius: 4px;
+  font-size: 0.95rem;
 }
 
 .filter-controls {
@@ -72,34 +66,22 @@
 
 .filter-select {
   flex: 1;
-  min-width: 150px;
-  padding: 0.75rem;
-  border: 2px solid #e0e0e0;
-  border-radius: 6px;
+  min-width: 140px;
+  padding: 0.5rem;
+  border: 1px solid #dfe4ea;
+  border-radius: 4px;
   font-size: 0.95rem;
   background: white;
-  cursor: pointer;
-}
-
-.filter-select:focus {
-  outline: none;
-  border-color: #3498db;
 }
 
 .btn-reset {
-  padding: 0.75rem 1.5rem;
-  background: #e74c3c;
+  padding: 0.5rem 0.75rem;
+  background: #d9534f;
   color: white;
   border: none;
-  border-radius: 6px;
+  border-radius: 4px;
   font-weight: 600;
   cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.btn-reset:hover {
-  background: #c0392b;
-  transform: translateY(-2px);
 }
 
 /* Message vide */
@@ -122,15 +104,16 @@
 }
 
 .books-table thead {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
+  background: #f5f7fa;
+  color: #222;
 }
 
 .books-table th {
-  padding: 1rem;
+  padding: 0.75rem;
   text-align: left;
   font-weight: 600;
   white-space: nowrap;
+  font-size: 0.9rem;
 }
 
 .books-table tbody tr {
@@ -138,14 +121,9 @@
   transition: all 0.2s ease;
 }
 
-.books-table tbody tr:hover {
-  background: #f8f9fa;
-  transform: scale(1.01);
-}
-
 .books-table tbody tr.unavailable {
-  opacity: 0.7;
-  background: #fef5f5;
+  opacity: 0.8;
+  background: #fff7f7;
 }
 
 .books-table td {
@@ -158,12 +136,11 @@
 }
 
 .category-badge {
-  background: #e3f2fd;
-  color: #1976d2;
-  padding: 0.25rem 0.75rem;
-  border-radius: 12px;
-  font-size: 0.875rem;
-  font-weight: 500;
+  background: transparent;
+  color: #333;
+  padding: 0.15rem 0.5rem;
+  border-radius: 6px;
+  font-size: 0.85rem;
 }
 
 .email {
@@ -183,18 +160,9 @@
 }
 
 .status-badge {
-  display: inline-block;
-  padding: 0.4rem 0.8rem;
-  border-radius: 15px;
-  font-size: 0.875rem;
   font-weight: 600;
-  background: #ffebee;
-  color: #e74c3c;
-}
-
-.status-badge.available {
-  background: #d5f4e6;
-  color: #27ae60;
+  font-size: 0.85rem;
+  color: #333;
 }
 
 .actions {
@@ -204,30 +172,20 @@
 
 .btn-edit,
 .btn-delete {
-  padding: 0.5rem 0.75rem;
-  border: none;
-  border-radius: 6px;
+  padding: 0.4rem 0.6rem;
+  border: 1px solid #dfe4ea;
+  border-radius: 4px;
   cursor: pointer;
-  font-size: 1.25rem;
-  transition: all 0.2s ease;
+  font-size: 0.9rem;
 }
 
 .btn-edit {
-  background: #fff3cd;
-}
-
-.btn-edit:hover {
-  background: #ffc107;
-  transform: scale(1.1);
+  background: #f0f0f0;
 }
 
 .btn-delete {
-  background: #ffebee;
-}
-
-.btn-delete:hover {
-  background: #ef5350;
-  transform: scale(1.1);
+  background: #fff0f0;
+  color: #c0392b;
 }
 
 /* Responsive */

@@ -1,7 +1,7 @@
 <div class="list-container">
   <!-- En-tête avec compteurs -->
   <div class="list-header">
-    <h2>📖 Liste des Livres</h2>
+    <h2>Liste des livres</h2>
     <div class="stats">
       <span class="stat-badge">Total: {{ totalBooks }}</span>
       <span class="stat-badge available">Disponibles: {{ availableBooks }}</span>
@@ -15,7 +15,7 @@
       <input
         type="text"
         [(ngModel)]="searchTerm"
-        placeholder="🔍 Rechercher par titre ou auteur..."
+        placeholder="Rechercher par titre ou auteur..."
         class="search-input">
     </div>
 
@@ -45,7 +45,7 @@
 
   <!-- Message si aucun livre -->
   <div *ngIf="filteredBooks.length === 0" class="no-books">
-    <p>📚 Aucun livre trouvé</p>
+    <p>Aucun livre trouvé</p>
   </div>
 
   <!-- Tableau des livres -->
@@ -78,7 +78,7 @@
             <td class="stock">{{ book.stock ?? '-' }}</td>
             <td>
               <span class="status-badge" [class.available]="book.isAvailable">
-                {{ book.isAvailable ? '✓ Disponible' : '✗ Indisponible' }}
+                {{ book.isAvailable ? 'Disponible' : 'Indisponible' }}
               </span>
             </td>
             <td class="actions">
@@ -86,13 +86,13 @@
                 (click)="onEdit(book)"
                 class="btn-edit"
                 title="Modifier">
-                ✏️
+                Modifier
               </button>
               <button
                 (click)="onDelete(book.id)"
                 class="btn-delete"
                 title="Supprimer">
-                🗑️
+                Supprimer
               </button>
             </td>
           </tr>
